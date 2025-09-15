@@ -26,7 +26,7 @@ def login_view(request):
 @login_required
 def dashboard(request):
     expenses = Expense.objects.filter(user=request.user).order_by('-date')
-    return render(request, 'tracker/dashboard.html', {'expenses': expenses})
+    return render(request, 'tracker/dashboard.html')
 
 @login_required
 def add_expense(request):
