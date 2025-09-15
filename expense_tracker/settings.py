@@ -144,7 +144,12 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "your-default-secret-key")
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 # Allow Render domain
+# Allow Render domain
 ALLOWED_HOSTS = ["personal-expenses-tracking-system-9zqa.onrender.com"]
+
+# For testing, you can temporarily allow all hosts
+# ALLOWED_HOSTS = ["*"]
+
 
 
 # Application definition
