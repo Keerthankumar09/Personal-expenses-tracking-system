@@ -148,7 +148,12 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 #ALLOWED_HOSTS = ["personal-expenses-tracking-system-9zqa.onrender.com"]
 
 # For testing, you can temporarily allow all hosts
- ALLOWED_HOSTS = ["*"]
+ ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    ".onrender.com",  # allows any Render subdomain
+]
+
 
 
 
@@ -230,11 +235,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Media files
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
